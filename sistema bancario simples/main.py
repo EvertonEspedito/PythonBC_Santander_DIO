@@ -50,8 +50,6 @@ while True:
         if saqueCount == 3:
             lineMenu()
             print("\n - Você atingiu o limite de 3 saques diários!\n")
-        
- 
 
     elif opcao == "3":
         lineMenu()
