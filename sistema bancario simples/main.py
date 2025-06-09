@@ -1,16 +1,19 @@
 valorConta = 0.0
 saqueCount = 0
+extrato = ''
 
-def depositar(valerDepo, valorConta):
+
+def depositar(valerDepo, valorConta,extrato):
     if ( valerDepo <= 0 ):
         print("\n - Erro ao depositar, valor invalido!\n")
         return valorConta
     else:
         valorConta += valerDepo
         print("\n - Valor depositado com sucesso!\n")
-        return valorConta
+        extrato+= f"- Deposito: R${valerDepo:.2f}\n"
+        return valorConta, extrato
 
-def sacar(valerSaque, valorConta):
+def sacar(valerSaque, valorConta,extrato):
     if ( valerSaque > valorConta  or valerSaque < 0):
         if ( valerSaque > 500.0):
             print("\n - Erro ao sacar, valor acima dos 500.00!\n")
@@ -18,8 +21,9 @@ def sacar(valerSaque, valorConta):
         return valorConta
     else:
         valorConta -= valerSaque
-        print("\n - Valor sacado com sucesso!\n")      
-        return valorConta
+        print("\n - Valor sacado com sucesso!\n")  
+        extrato+= f"- Saque: R${valerSaque:.2f}\n"    
+        return valorConta, extrato
     
 def lineMenu():
     for i in range(1, 52):
@@ -40,13 +44,13 @@ while True:
     lineMenu()
     if opcao == "1":
         valor = float(input("\nDigite o valor para depositar: R$ \n"))
-        valorConta = depositar(valor,valorConta)
+        valorConta, extrato = depositar(valor, valorConta, extrato)
         
     elif opcao == "2":
         print(f"\nApenas 3 saques diarios, você já fez {saqueCount} saque(s)\n")
         if saqueCount <=3:
             valor = float(input("\nDigite o valor para sacar: R$ \n"))
-            valorConta = sacar(valor,valorConta)
+            valorConta, extrato = depositar(valor, valorConta, extrato)
             saqueCount += 1
 
         if saqueCount == 3:
@@ -56,6 +60,8 @@ while True:
     elif opcao == "3":
         lineMenu()
         print(f"\n - Seu saldo atual é: R$ {valorConta:.2f}\n")
+
+        print(f"\n - Extrato: \n {extrato}")
         lineMenu()
 
     elif opcao == "4":
