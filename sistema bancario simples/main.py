@@ -12,7 +12,7 @@ def depositar(valerDepo, valorConta):
 
 def sacar(valerSaque, valorConta):
     if ( valerSaque > valorConta  or valerSaque < 0):
-        if ( valerSaque >= 500.0):
+        if ( valerSaque > 500.0):
             print("\n - Erro ao sacar, valor acima dos 500.00!\n")
         print("\nErro ao sacar, valor invalido!\n")
         return valorConta
