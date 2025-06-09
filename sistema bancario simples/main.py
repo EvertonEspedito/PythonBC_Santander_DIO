@@ -18,17 +18,24 @@ def sacar(valerSaque, valorConta):
         valorConta -= valerSaque
         print("\n - Valor sacado com sucesso!\n")      
         return valorConta
+    
+def lineMenu():
+    for i in range(1, 52):
+        print("=", end="")
 
 
 while True:
-    # Solicitar o valor da conta
+    # Menu
+    lineMenu()
+    print("\n - Banco Digital - Menu\n")
     print("Selecione a opção para realizar a transação:")
     print("1 - Depositar")
     print("2 - Sacar")
     print("3 - Consultar Saldo")
     print("4 - Sair")
-    opcao = input("Opção: \n")
-    
+    lineMenu()
+    opcao = input("\nOpção: \n")
+    lineMenu()
     if opcao == "1":
         valor = float(input("Digite o valor para depositar: R$ "))
         valorConta = depositar(valor,valorConta)
@@ -41,17 +48,21 @@ while True:
             saqueCount += 1
 
         if saqueCount == 3:
+            lineMenu()
             print("\n - Você atingiu o limite de 3 saques diários!\n")
+        
  
 
     elif opcao == "3":
+        lineMenu()
         print(f"\n - Seu saldo atual é: R$ {valorConta:.2f}\n")
+        lineMenu()
 
     elif opcao == "4":
+        lineMenu()
         print("\n - Obrigado por utilizar o sistema!\n")
+        lineMenu()
         break
-
-
-
+    lineMenu()
 
 
