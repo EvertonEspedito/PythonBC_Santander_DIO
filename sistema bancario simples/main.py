@@ -1,4 +1,5 @@
 valorConta = 0.0
+saqueCount = 0
 
 def depositar(valerDepo, valorConta):
     if ( valerDepo <= 0 ):
@@ -33,8 +34,15 @@ while True:
         valorConta = depositar(valor,valorConta)
         
     elif opcao == "2":
-        valor = float(input("Digite o valor para sacar: R$ "))
-        valorConta = sacar(valor,valorConta)
+        print(f"Apenas 3 saques diarios, você já fez {saqueCount} saque(s)")
+        if saqueCount <=3:
+            valor = float(input("Digite o valor para sacar: R$ "))
+            valorConta = sacar(valor,valorConta)
+            saqueCount += 1
+
+        if saqueCount == 3:
+            print("\n - Você atingiu o limite de 3 saques diários!\n")
+ 
 
     elif opcao == "3":
         print(f"\n - Seu saldo atual é: R$ {valorConta:.2f}\n")
