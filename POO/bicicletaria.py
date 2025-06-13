@@ -20,3 +20,4 @@ b1 = Bicicleta(1500, "caloi 45", "Verde", 2040)
 b1.buzinar()
 b1.correr()
 b1.parar()
+print(b1.modelo) # Parei no 9:15
