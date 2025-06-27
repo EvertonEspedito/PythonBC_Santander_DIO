@@ -1,0 +1,4 @@
+Olá, mundo!
+Este é um arquivo de texto.
+Cada linha será lida separadamente.
+Fim do exemplo.
