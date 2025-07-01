@@ -14,3 +14,4 @@ print(hora)
 # Data e hora
 dataAtual = datetime.now()
 print(f'Data e hora atual: {dataAtual}')
+
