@@ -28,8 +28,16 @@ def deletar_registro(conexao, cursor, id):
     data = (id,)
     cursor.execute('DELETE FROM clientes WHERE id = ?',data)
     conexao.commit()
+    
+#adição de varios de dados
+def inserir_muitos(conexao, cursor, dados):
+    cursor.executemany('INSERT INTO clientes (nome,email) VALUES(?,?)',dados)
+    conexao.commit()
 
 
-atualizar_registros(conexao, cursor, 'Everton Gostoso', 'Evertolindo@gmail.com', 1)
-inserir_registro(conexao, cursor, 'Ronaldo do GRAU', 'ronaldotristonho@gmail') # id 2
-deletar_registro(conexao,cursor,2)#apagar id 2
+dados = [
+    ('Everton Lindão','Everton@lindojhnonson@gmail'),
+    ('Erick Cartman', 'gordinho@gmail.com'),
+    ('Jackson do JD', 'jdowiodwo@gmail.com')
+]
+inserir_muitos(conexao,cursor,dados)    
