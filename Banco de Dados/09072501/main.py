@@ -24,4 +24,12 @@ def atualizar_registros(conexao, cursor,nome,email, id):
     cursor.execute('UPDATE clientes SET nome = ?,email = ? WHERE id = ?',data) #Atualizar item/ WHERE é importante para atualizar apenas a linha desejada
     conexao.commit()
 
+def deletar_registro(conexao, cursor, id):
+    data = (id,)
+    cursor.execute('DELETE FROM clientes WHERE id = ?',data)
+    conexao.commit()
+
+
 atualizar_registros(conexao, cursor, 'Everton Gostoso', 'Evertolindo@gmail.com', 1)
+inserir_registro(conexao, cursor, 'Ronaldo do GRAU', 'ronaldotristonho@gmail') # id 2
+deletar_registro(conexao,cursor,2)#apagar id 2
