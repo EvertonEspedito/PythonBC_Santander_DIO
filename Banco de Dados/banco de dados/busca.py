@@ -16,9 +16,11 @@ def listar_clientes(cursor):
     return cursor.execute('SELECT * FROM clientes')#Todos os dados de todas as linhas
 
 
-cliente = buscar_id(cursor,6)
-print(cliente)
 
-cliente = listar_clientes(cursor)
-for linha in cliente:
+clientes = listar_clientes(cursor)
+for linha in clientes:
     print(linha)
+
+
+cliente = buscar_id(cursor,6)
+print(cliente[1])  
