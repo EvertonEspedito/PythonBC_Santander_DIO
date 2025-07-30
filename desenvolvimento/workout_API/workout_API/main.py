@@ -4,4 +4,4 @@ app = FastAPI(title = 'WorkoutApi')
 
 
 
-#6:28
+# 5° Aula 2:48
