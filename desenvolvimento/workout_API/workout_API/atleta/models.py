@@ -1,6 +1,6 @@
 from workout_API.contrib.models import BaseModel
-from sqlalchemy.orm import Mapped, mapped_collumn
-from sqlalchemy.orm import Integer, String, Float,Datetime
+from sqlalchemy.orm import Mapped, mapped_collumn, relationship # type: ignore
+from sqlalchemy.orm import Integer, String, Float,Datetime # type: ignore
 from datetime import datetime
 
 class AtletaModel(BaseModel):
@@ -13,3 +13,7 @@ class AtletaModel(BaseModel):
     altura: Mapped[float] = mapped_collumn(Float, nullable = False)
     sexo: Mapped[str] = mapped_collumn(String(1), nullable = False)
     cread_at: Mapped[datetime] = mapped_collumn(Datetime, nullable = False)
+    categoria: Mapped['CategoriaModel'] = relationship(back_populates= 'atleta')
+    categoria_id = Mapped[int] = mapped_collumn(ForeignKey('categorias.pk_id'))
+    centro_treinamento: Mapped['CentroTreinamentoModel'] = relationship(back_populates= 'atleta')
+    centro_treinamento_id = Mapped[int] = mapped_collumn(ForeignKey('centro_treinamento.pk_id'))
