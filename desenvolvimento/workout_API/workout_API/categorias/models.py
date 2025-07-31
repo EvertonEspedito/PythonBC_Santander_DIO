@@ -5,5 +5,5 @@ from sqlalchemy.orm import Integer, String # type: ignore
 class CategoriaModel(BaseModel):
     __tablename__ = 'Categorias'
     pk_id: Mapped[int] = mapped_collumn(Integer, primary_key = True)
-    nome: Mapped[str] = mapped_collumn(String(50), nullable = False)
+    nome: Mapped[str] = mapped_collumn(String(50),unique = True, nullable = False)
     atleta: Mapped['AtletaModel'] = relationship(back_populates= 'categoria')
